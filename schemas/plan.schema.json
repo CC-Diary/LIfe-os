@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifeos://schemas/plan",
+  "title": "Personal Plan",
+  "type": "object",
+  "required": ["id", "title", "window", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string", "minLength": 1},
+    "domain": {"enum": ["health", "work", "learning", "relationship", "money", "creative", "other"]},
+    "window": {"type": "object", "required": ["start"], "properties": {"start": {"type": "string"}, "end": {"type": ["string", "null"]}}, "additionalProperties": false},
+    "intention": {"type": "string"},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "adjustment_rules": {"type": "array", "items": {"type": "string"}},
+    "sensitivity": {"enum": ["ordinary", "sensitive", "local_only"]},
+    "status": {"enum": ["planned", "active", "completed", "partially_completed", "skipped", "cancelled"]},
+    "observation_ids": {"type": "array", "items": {"type": "string"}},
+    "outcome_ids": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
