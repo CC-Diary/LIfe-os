@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifeos://schemas/event",
+  "title": "Life Event",
+  "type": "object",
+  "required": ["id", "occurred", "summary", "source_level", "status"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{2,80}$"},
+    "occurred": {"type": "string", "description": "ISO date, year, range, or unknown"},
+    "summary": {"type": "string", "minLength": 1},
+    "context": {"type": "string"},
+    "actions": {"type": "array", "items": {"type": "string"}},
+    "outcome": {"type": "string"},
+    "domains": {"type": "array", "items": {"enum": ["identity", "family", "education", "work", "money", "health", "relationship", "creative", "belief", "other"]}},
+    "source_level": {"enum": ["user_confirmed", "user_original", "user_reported", "ai_summary", "ai_inference"]},
+    "source_ref": {"type": "string"},
+    "sensitivity": {"enum": ["ordinary", "sensitive", "local_only"]},
+    "status": {"enum": ["unconfirmed", "confirmed", "superseded", "rejected"]}
+  },
+  "additionalProperties": false
+}
