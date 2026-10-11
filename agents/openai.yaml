@@ -1,0 +1,4 @@
+interface:
+  display_name: "人生数字分身"
+  short_description: "通过渐进访谈维护本地人生档案，依据真实经历与当前目标辅助个人决策"
+  default_prompt: "使用 $life-twin 开始建立我的人生数字分身，每轮只问一个问题。"
