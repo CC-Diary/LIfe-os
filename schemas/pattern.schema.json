@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifeos://schemas/pattern",
+  "title": "Decision Pattern",
+  "type": "object",
+  "required": ["id", "if", "then", "confidence", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "if": {"type": "string"},
+    "then": {"type": "string"},
+    "exceptions": {"type": "array", "items": {"type": "string"}},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "status": {"enum": ["unconfirmed", "confirmed", "superseded", "rejected"]}
+  },
+  "additionalProperties": false
+}
