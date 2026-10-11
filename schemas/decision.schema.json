@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifeos://schemas/decision",
+  "title": "Personal Decision",
+  "type": "object",
+  "required": ["id", "question", "options", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "question": {"type": "string"},
+    "decided_at": {"type": ["string", "null"]},
+    "deadline": {"type": ["string", "null"]},
+    "options": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["label"], "properties": {"label": {"type": "string"}, "benefits": {"type": "array", "items": {"type": "string"}}, "costs": {"type": "array", "items": {"type": "string"}}, "risks": {"type": "array", "items": {"type": "string"}}, "reversible": {"type": "boolean"}}, "additionalProperties": false}},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "unknowns": {"type": "array", "items": {"type": "string"}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "recommendation": {"type": ["string", "null"]},
+    "choice": {"type": ["string", "null"]},
+    "status": {"enum": ["open", "decided", "revisited", "cancelled"]}
+  },
+  "additionalProperties": false
+}
