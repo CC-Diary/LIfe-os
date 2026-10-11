@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifeos://schemas/belief-change",
+  "title": "Belief Change",
+  "type": "object",
+  "required": ["id", "before", "after", "reason", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "before": {"type": "string"},
+    "after": {"type": "string"},
+    "reason": {"type": "string"},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "changed_at": {"type": "string"},
+    "status": {"enum": ["unconfirmed", "confirmed", "superseded", "rejected"]}
+  },
+  "additionalProperties": false
+}
