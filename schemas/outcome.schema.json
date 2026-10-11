@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lifeos://schemas/outcome",
+  "title": "Decision Outcome",
+  "type": "object",
+  "required": ["id", "decision_id", "observed_at", "summary"],
+  "properties": {
+    "id": {"type": "string"},
+    "decision_id": {"type": "string"},
+    "observed_at": {"type": "string"},
+    "summary": {"type": "string"},
+    "expected": {"type": "string"},
+    "surprises": {"type": "array", "items": {"type": "string"}},
+    "model_error": {"enum": ["none_observed", "missing_fact", "bad_inference", "execution", "external_change", "unknown"]},
+    "follow_up": {"type": "string"}
+  },
+  "additionalProperties": false
+}
